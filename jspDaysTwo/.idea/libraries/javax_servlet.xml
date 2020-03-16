@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="javax.servlet">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../libs-save/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../libs-save/sqljdbc_6.0.8112.200_chs/sqljdbc_6.0/chs/jre7/sqljdbc41.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../libs-save/sqljdbc_6.0.8112.200_chs/sqljdbc_6.0/chs/jre8/sqljdbc42.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../libs-save/jdbc-1/mysql-connector-java-5.1.7" />
+      <root url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin/apidocs" />
+      <root url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin/site/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../libs-save/jdbc-1/mysql-connector-java-5.1.7/src" />
+      <root url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../libs-save/jdbc-1/mysql-connector-java-5.1.7" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../libs-save/commons-fileupload-1.4-bin" recursive="false" type="SOURCES" />
+  </library>
+</component>

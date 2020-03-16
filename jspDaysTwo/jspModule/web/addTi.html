@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加题目-权限@1</title>
+</head>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="source/css/indexfix.css">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="source/js/jquery_need.js"></script>
+<!---->
+<script src="edit/dist/summernote.js"></script>
+<script src="edit/dist/lang/summernote-zh-CN.js"></script>
+<link href="edit/dist/summernote.css" rel="stylesheet">
+<!---->
+
+<!---->
+
+<body>
+<form action="AddObject.jsp" method="post" onSubmit="return subm()">
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <br>
+            <div class="alert alert-warning">
+                <p style="font-size: 10px;color: orangered;font-family: '宋体';font-weight: bolder;">
+                    欢迎来到增加题目模块，这里您可以进行增加题目，即新增题目。
+                    <br>
+                    注意:题目符合要求即可生成，但是有可能会被三级管理员拉近黑名单，因为有【可能违规】或者【存在BUG】或者【测试数据比对错误】等因素；修改后可以重新上库。
+                </p>
+
+            </div>
+
+            <br>
+            <hr>
+            <h3 style="word-wrap: normal;word-break: break-all;justify-content: center;display: flex;">
+                请输入题目名称:
+                <input type="text" class="form-control" id="name" name="name" placeholder="请输入名称/2-25字之间" style="width: 600px;"
+                       data-toggle="tooltip" data-placement="right"
+                       title="输入的名称需要符合规则!">
+            </h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row clearfix" style="">
+        <div class="col-md-12 column" >
+
+            <div style="width: 1000px;min-height: 300px;justify-content: center;display: flex;margin: 0 auto;" data-toggle="tooltip" data-placement="right"
+                 title="最好别加图片，这里的描述主要是文字！base64承受不了100k以上的image！太脆弱">
+                <br><br><br>
+                <div id="summernote" name="summernote" class="summernote"   >
+                    请在这里添加题目具体描述
+                </div>
+                <input type="text" name="scription" hidden id="scription" value="">
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <div class="col-md-6 column">
+                所在题组:
+                <br><br>
+                <div class="btn-group" style="word-wrap: normal;word-break: break-all;justify-content: center;display: flex;">
+
+                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm"
+                            data-toggle="dropdown">
+                        <font id="belong_group"></font>
+                        <span class="caret"></span>
+                        <a id="groupmd5" hidden></a>
+                    </button>
+                    <ul class="dropdown-menu" id="groupul" role="menu">
+
+
+                    </ul>
+                </div>
+                <hr>
+                <p style="font-size: 10px;color: red;">
+                    计算公式:<br>
+                    定义题目组的总分为s;<br>
+                    每道题所占的分值为X(i),<br>
+                    该题目组下所有题目的分值总和为S,<br>
+                    那这道题可以拿到分数SCORE<br>
+                    SCORE = s*(X(i)/S);<br>
+                    即:<br>
+                    每道题能得到的分值为占该组的总分*(该题分值/该题目组下所有题目的数量的分值之和)<br>
+                </p>
+                <br>
+                <br>
+                <div class="btn-group" style="word-wrap: normal;word-break: break-all;justify-content: center;display: flex;">
+                    分值多少&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br>
+                    <button type="button" class="btn btn-primary dropdown-toggle btn-sm"
+                            data-toggle="dropdown">
+                        <font id="grade">20</font>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a onclick="setgrade('5')">5</a></li>
+                        <li><a onclick="setgrade('10')">10</a></li>
+                        <li><a onclick="setgrade('15')">15</a></li>
+                        <li><a onclick="setgrade('20')">20</a></li>
+                        <li><a onclick="setgrade('25')">25</a></li>
+                        <li><a onclick="setgrade('30')">30</a></li>
+                        <li><a onclick="setgrade('35')">35</a></li>
+                        <li><a onclick="setgrade('40')">40</a></li>
+                        <li><a onclick="setgrade('45')">45</a></li>
+                        <li><a onclick="setgrade('50')">50</a></li>
+                        <li><a onclick="setgrade('55')">55</a></li>
+                        <li><a onclick="setgrade('60')">60</a></li>
+                        <li><a onclick="setgrade('65')">65</a></li>
+                        <li><a onclick="setgrade('70')">70</a></li>
+                        <li><a onclick="setgrade('75')">75</a></li>
+                        <li><a onclick="setgrade('80')">80</a></li>
+                        <li><a onclick="setgrade('85')">85</a></li>
+                        <li><a onclick="setgrade('90')">90</a></li>
+                        <li><a onclick="setgrade('95')">95</a></li>
+                        <li><a onclick="setgrade('100')">100</a></li>
+                    </ul>
+                </div>
+                <hr>
+
+
+        </div>
+
+        <div class="col-md-4 column" style="width: 180px;">
+            开始时间: <br> <font style="color: red;font-size: 10px;width: 150px;">[不设置代表没有时间限制]</font>
+            <input type="text" name="starttime" style="width: 150px;height: 25px;border-style: solid;border-radius: 5px;" id="starttime">
+            <script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
+            <script>
+                laydate.render({
+                    elem: '#starttime',
+                    type:'datetime'
+                });
+            </script>
+        </div>
+            <div class="col-md-4 column" style="width: 180px;">
+                结束时间: <br> <font style="color: red;font-size: 10px;width: 150px;">[不设置代表没有时间限制]</font>
+                <input type="text" name="endtime" style="width: 150px;height: 25px;border-style: solid;border-radius: 5px;" id="endtime">
+                <script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
+                <script>
+                    laydate.render({
+                        elem: '#endtime',
+                        type:'datetime'
+                    });
+                </script>
+            </div>
+            <br> <br> <br> <br>
+            <div id="myButtons3" class="bs-example" style="color: red;">
+                <hr>
+                <br>
+                <button type="button" class="btn btn-primary"
+                        data-loading-text="正在清空..." id="clear_date" style="justify-content: center;display: flex;left: 50px;position: relative;">清除日期
+                </button>
+            </div>
+            <hr>
+            <p>
+                请描述题目难度:
+            </p>
+
+            <button type="button" class="btn btn-primary dropdown-toggle btn-sm"
+                    data-toggle="dropdown" id="rank" style="width: 100px;position: relative;left: 40px;">
+                <font id="text_abl">容易</font>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a onclick="setRank('入门')">入门</a></li>
+                <li><a  onclick="setRank('容易')">容易</a></li>
+                <li><a  onclick="setRank('初级')">初级</a></li>
+                <li><a onclick="setRank('中级')">中级</a></li>
+                <li><a  onclick="setRank('高级')">高级</a></li>
+                <li><a  onclick="setRank('困难')">困难</a></li>
+
+            </ul>
+            <hr>
+
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column" style="width: 700px;">
+            <div id="summernote2" class="summernote"   >
+                请在这里添加题目数据限制[这里应该是全文字,最好别图片,为了美观]:比如 <br>
+                1.对于题目中的变量n,前10%样例满足n<300;<br>
+                2.对于题目中的变量n,前40%样例满足n<30,000;<br>
+                3.对于题目中的变量n,前90%样例满足n<3,000,000;<br>
+                4.对于题目中的变量n,前100%样例满足n<300,000,000;<br>
+                5.对于m,n,t,q，满足m < n,t > m,t < q;<br>
+            </div>
+            <textarea class="form-control" rows="10" name="addition_tip" id="addition_tip" cols="60" rows="20" onresize="false" style="resize: unset" placeholder="附加描述,有什么想对用户说的:比如考察的知识点、题目说明。没有的话请忽略!"></textarea>
+            <hr>
+        </div>
+    </div>
+        <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+        <h6 align="center" style="color:red ;font-weight: bolder;">下面是添加测试样例区,请确保您的测试样例【输入和输出都正确】!另外;如果输出样例输出为空，系统自动丢弃该样例。</h6>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row clearfix" style="justify-content: center">
+                        <br>
+                        <div class="alert alert-warning" style="">测试样例1</div>
+                            <div >
+                                <div class="col-md-4 column">
+                                    <textarea class="form-control" rows="18" name="E_1" id="E_1"
+                                              cols="15"  onresize="false" style="resize: unset"
+                                              placeholder="请在这里添加题目【评测数据1输入】比如:1 2 3 4 5 6 7，没有输入的数据则输入 *"></textarea>
+
+                                        </div>
+                                        <div class="col-md-4 column">
+                                           <textarea class="form-control" rows="18" name="EE_1" id="EE_1"
+                                                     cols="15" onresize="false" style="resize: unset"
+                                                     placeholder="请在这里添加题目【评测数据1的输出结果】比如:28"></textarea>
+                                        </div>
+                                    </div>
+
+                                <div class="col-md-4 column">
+
+                                    <div class="btn-group">
+                                        <p>对于用户来说，测试样例1可见吗？[测试样例1必须可见]
+                                        </p>
+                                        <button type="button" id="cansee1" class="btn btn-default dropdown-toggle" data-toggle="dropdown" disabled>
+                                            <font id="cansee_1">可见</font>
+                                            <input type="text" name="CCCCC1" hidden id="CCCCC1">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" disabled="">
+                                            <li>
+                                                <a  onclick="youcansee(1,1)">可见</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="youcansee(1,2)">不可见</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                            </div>
+                                <br>
+                                <hr>
+
+                        <hr>
+                                <div class="btn-group">
+                                    <p>
+                                        测试样例1最长的返回结果事时间设定:
+                                    </p>
+                                    <button id="timelimit1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <font id="timelimit_1">100ms</font>
+                                        <input type="text" name="BBBBB1" hidden id="BBBBB1">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a onClick="setlimit(1,0)" >100ms</a></li>
+                                        <li><a onClick="setlimit(1,1)" >200ms</a></li>
+                                        <li><a onClick="setlimit(1,2)" >300ms</a></li>
+                                        <li><a onClick="setlimit(1,3)" >400ms</a></li>
+                                        <li><a onClick="setlimit(1,4)" >500ms</a></li>
+                                        <li><a onClick="setlimit(1,5)" >600ms</a></li>
+                                        <li><a onClick="setlimit(1,6)" >700ms</a></li>
+                                        <li><a onClick="setlimit(1,7)" >800ms</a></li>
+                                        <li><a onClick="setlimit(1,8)" >900ms</a></li>
+                                        <li><a onClick="setlimit(1,9)" >1000ms</a></li>
+                                        <li><a onClick="setlimit(1,10)" >1100ms</a></li>
+                                        <li><a onClick="setlimit(1,11)" >1200ms</a></li>
+                                        <li><a onClick="setlimit(1,12)" >1300ms</a></li>
+                                        <li><a onClick="setlimit(1,13)" >1400ms</a></li>
+                                        <li><a onClick="setlimit(1,14)" >1500ms</a></li>
+                                        <li><a onClick="setlimit(1,15)" >1600ms</a></li>
+                                        <li><a onClick="setlimit(1,16)" >1700ms</a></li>
+                                        <li><a onClick="setlimit(1,17)" >1800ms</a></li>
+                                        <li><a onClick="setlimit(1,18)" >1900ms</a></li>
+                                        <li><a onClick="setlimit(1,19)" >2000ms</a></li>
+                                        <li><a onClick="setlimit(1,20)" >2100ms</a></li>
+                                        <li><a onClick="setlimit(1,21)" >2200ms</a></li>
+                                        <li><a onClick="setlimit(1,22)" >2300ms</a></li>
+                                        <li><a onClick="setlimit(1,23)" >2400ms</a></li>
+                                        <li><a onClick="setlimit(1,24)" >2500ms</a></li>
+                                        <li><a onClick="setlimit(1,25)" >2600ms</a></li>
+                                        <li><a onClick="setlimit(1,26)" >2700ms</a></li>
+                                        <li><a onClick="setlimit(1,27)" >2800ms</a></li>
+                                        <li><a onClick="setlimit(1,28)" >2900ms</a></li>
+                                        <li><a onClick="setlimit(1,29)" >3000ms</a></li>
+                                        <li><a onClick="setlimit(1,30)" >3100ms</a></li>
+                                        <li><a onClick="setlimit(1,31)" >3200ms</a></li>
+                                        <li><a onClick="setlimit(1,32)" >3300ms</a></li>
+                                        <li><a onClick="setlimit(1,33)" >3400ms</a></li>
+                                        <li><a onClick="setlimit(1,34)" >3500ms</a></li>
+                                        <li><a onClick="setlimit(1,35)" >3600ms</a></li>
+                                        <li><a onClick="setlimit(1,36)" >3700ms</a></li>
+                                        <li><a onClick="setlimit(1,37)" >3800ms</a></li>
+                                        <li><a onClick="setlimit(1,38)" >3900ms</a></li>
+                                        <li><a onClick="setlimit(1,39)" >4000ms</a></li>
+                                        <li><a onClick="setlimit(1,40)" >4100ms</a></li>
+                                        <li><a onClick="setlimit(1,41)" >4200ms</a></li>
+                                        <li><a onClick="setlimit(1,42)" >4300ms</a></li>
+                                        <li><a onClick="setlimit(1,43)" >4400ms</a></li>
+                                        <li><a onClick="setlimit(1,44)" >4500ms</a></li>
+                                        <li><a onClick="setlimit(1,45)" >4600ms</a></li>
+                                        <li><a onClick="setlimit(1,46)" >4700ms</a></li>
+                                        <li><a onClick="setlimit(1,47)" >4800ms</a></li>
+                                        <li><a onClick="setlimit(1,48)" >4900ms</a></li>
+                                        <li><a onClick="setlimit(1,49)" >5000ms</a></li>
+                                    </ul>
+                                    <br>
+                                    <hr>
+                                    该测评提示: <textarea class="form-control" rows="8" name="T1" id="T1"
+                                              cols="5" rows="15" onresize="false" style="resize: unset"
+                                              placeholder="测评描述:最好有描述。
+比如:
+1+2+3+4+5+6+7=28"></textarea>
+                                </div>
+                                <hr>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column" >
+            <div id="inner_">
+
+            </div>
+
+
+            <br>
+            <br>
+        </div>
+    </div>
+    <hr>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <button type="button" id="add_example" class="btn btn-success"  style="width: 1000px;justify-content: center;margin-top:20px;display: flex;margin: 0 auto;">添加测试样例</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <textarea class="form-control" rows="10" name="correct_code" id="correct_code" cols="60" rows="20" onresize="false" style="resize: unset" placeholder="正确代码"></textarea>
+        </div>
+    </div>
+    <hr>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <button type="submit" id="sub" class="btn btn-success"  style="width: 1000px;justify-content: center;margin-top:20px;display: flex;margin: 0 auto;">提交</button>
+        </div>
+    </div>
+    <hr>
+
+</div>
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="text_tip"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >知道了</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<button id="tip_mtk" data-toggle="modal" data-target="#myModal" hidden></button>
+<!-- 模态框（Modal） -->
+    <input type="text" name="belong_group_" hidden id="belong_group_">
+    <input type="text" name="groupmd5_" hidden id="groupmd5_">
+    <input type="text" name="score" hidden id="score">
+    <input type="text" name="nums_" hidden id="nums_">
+    <input type="text" name="curr_INDEX" hidden id="curr_INDEX">
+    <input type="text" name="object_data_limit" hidden id="object_data_limit">
+    <input type="text" name="object_hard" hidden id="object_hard">
+
+    <!--// $("#starttime").val();-->
+    <!--// $("#endtime").val();-->
+</form>
+</body>
+</html>
+<script
+    >
+    var curr_index = 1;
+    var you_delete = 0;
+    $(document).ready(function () {
+        $(function(){
+            $('.summernote').summernote({
+                height: 300,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+            $('.summernote2').summernote({
+                height: 300,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+            $('.summernote3').summernote({
+                height: 300,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+            $('.summernote3A').summernote({
+                height: 300,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+
+        });
+
+        $("#clear_date").click(function () {
+            $("#starttime").val("");
+            $("#endtime").val("");
+        })
+        $("#add_example").click(function () {
+            if(curr_index>9+you_delete){
+                alert("当前自多只可创建10个测试样例!");
+                // showtip();
+                return false;
+            }
+            else{
+                curr_index++;
+
+                $("#inner_").append('<div class="col-md-12 column" id="context'+curr_index+'">\n' +
+                    '                    <div class="row clearfix" style="justify-content: center">\n' +
+                    '                        <br>\n' +
+                    '                        <div class="alert alert-warning" style="">测试样例'+curr_index+'</div>\n' +
+
+                    '                            <div >\n' +
+                    '                                <div class="col-md-4 column">\n' +
+                    '                                    <textarea class="form-control" rows="18" name="E_'+curr_index+'" id="E_'+curr_index+'"\n' +
+                    '                                              cols="15"  onresize="false" style="resize: unset"\n' +
+                    '                                              placeholder="请在这里添加题目【评测数据'+curr_index+'输入】比如:1 2 3 4 5 6 7，没有输入的数据则输入 * "></textarea>\n' +
+                    '\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="col-md-4 column">\n' +
+                    '                                           <textarea class="form-control" rows="18" name="EE_'+curr_index+'" id="EE_'+curr_index+'"\n' +
+                    '                                                     cols="15"  onresize="false" style="resize: unset"\n' +
+                    '                                                     placeholder="请在这里添加题目【评测数据'+curr_index+'的输出结果】比如:28"></textarea>\n' +
+                    '                                        </div>\n' +
+                    '                                    </div>\n' +
+                    '\n' +
+                    '                                <div class="col-md-4 column">\n' +
+                    '\n' +
+                    '                                    <div class="btn-group">\n' +
+                    '                                        <p>对于用户来说，测试样例'+curr_index+'可见吗？' +
+                    '                                        </p>\n' +
+                    '                                        <button id="cansee'+curr_index+'" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">' +
+                    '                                         <font id="cansee_'+curr_index+'">可见</font> ' +
+                    '<input type="text" name="CCCCC'+curr_index+'" hidden id="CCCCC'+curr_index+'">' +
+                    '\n' +
+                    '                                            <span class="caret"></span>' +
+                    '                                        </button>\n' +
+                    '                                        <ul class="dropdown-menu" role="menu" disabled="">\n' +
+                    '                                            <li>\n' +
+                    '                                                <a onclick="youcansee('+curr_index+',1)">可见</a>\n' +
+                    '                                            </li>\n' +
+                    '                                            <li>\n' +
+                    '                                                <a onclick="youcansee('+curr_index+',2)">不可见</a>\n' +
+                    '                                            </li>\n' +
+                    '\n' +
+                    '                                        </ul>\n' +
+                    '                                    </div>\n' +
+                    '                            </div>\n' +
+                    '                                <br>\n' +
+                    '                                <hr>\n' +
+                    '\n' +
+                    '                        <hr>\n' +
+                    '                                <div class="btn-group">\n' +
+                    '                                    <p>\n' +
+                    '                                        测试样例'+curr_index+'最长的返回结果事时间设定:\n' +
+                    '                                    </p>\n' +
+                    '                                    <button id="timelimit'+curr_index+'" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">\n' +
+                    ' <font id="timelimit_'+curr_index+'">100ms</font>' +
+                    '<input type="text" name="BBBBB'+curr_index+'" hidden id="BBBBB'+curr_index+'">' +
+                    ' <span class="caret"></span>\n' +
+                    '                                    </button>\n' +
+                    '                                    <ul class="dropdown-menu" role="menu">'
+                    +'<li><a  onClick="setlimit('+curr_index+',0)" >100ms</a></li><li><a  onClick="setlimit('+curr_index+',1)" >200ms</a></li><li><a  onClick="setlimit('+curr_index+',2)" >300ms</a></li><li><a  onClick="setlimit('+curr_index+',3)" >400ms</a></li><li><a  onClick="setlimit('+curr_index+',4)" >500ms</a></li><li><a  onClick="setlimit('+curr_index+',5)" >600ms</a></li><li><a  onClick="setlimit('+curr_index+',6)" >700ms</a></li><li><a  onClick="setlimit('+curr_index+',7)" >800ms</a></li><li><a  onClick="setlimit('+curr_index+',8)" >900ms</a></li><li><a  onClick="setlimit('+curr_index+',9)" >1000ms</a></li><li><a  onClick="setlimit('+curr_index+',10)" >1100ms</a></li><li><a  onClick="setlimit('+curr_index+',11)" >1200ms</a></li><li><a  onClick="setlimit('+curr_index+',12)" >1300ms</a></li><li><a  onClick="setlimit('+curr_index+',13)" >1400ms</a></li><li><a  onClick="setlimit('+curr_index+',14)" >1500ms</a></li><li><a  onClick="setlimit('+curr_index+',15)" >1600ms</a></li><li><a  onClick="setlimit('+curr_index+',16)" >1700ms</a></li><li><a  onClick="setlimit('+curr_index+',17)" >1800ms</a></li><li><a  onClick="setlimit('+curr_index+',18)" >1900ms</a></li><li><a  onClick="setlimit('+curr_index+',19)" >2000ms</a></li><li><a  onClick="setlimit('+curr_index+',20)" >2100ms</a></li><li><a  onClick="setlimit('+curr_index+',21)" >2200ms</a></li><li><a  onClick="setlimit('+curr_index+',22)" >2300ms</a></li><li><a  onClick="setlimit('+curr_index+',23)" >2400ms</a></li><li><a  onClick="setlimit('+curr_index+',24)" >2500ms</a></li><li><a  onClick="setlimit('+curr_index+',25)" >2600ms</a></li><li><a  onClick="setlimit('+curr_index+',26)" >2700ms</a></li><li><a  onClick="setlimit('+curr_index+',27)" >2800ms</a></li><li><a  onClick="setlimit('+curr_index+',28)" >2900ms</a></li><li><a  onClick="setlimit('+curr_index+',29)" >3000ms</a></li><li><a  onClick="setlimit('+curr_index+',30)" >3100ms</a></li><li><a  onClick="setlimit('+curr_index+',31)" >3200ms</a></li><li><a  onClick="setlimit('+curr_index+',32)" >3300ms</a></li><li><a  onClick="setlimit('+curr_index+',33)" >3400ms</a></li><li><a  onClick="setlimit('+curr_index+',34)" >3500ms</a></li><li><a  onClick="setlimit('+curr_index+',35)" >3600ms</a></li><li><a  onClick="setlimit('+curr_index+',36)" >3700ms</a></li><li><a  onClick="setlimit('+curr_index+',37)" >3800ms</a></li><li><a  onClick="setlimit('+curr_index+',38)" >3900ms</a></li><li><a  onClick="setlimit('+curr_index+',39)" >4000ms</a></li><li><a  onClick="setlimit('+curr_index+',40)" >4100ms</a></li><li><a  onClick="setlimit('+curr_index+',41)" >4200ms</a></li><li><a  onClick="setlimit('+curr_index+',42)" >4300ms</a></li><li><a  onClick="setlimit('+curr_index+',43)" >4400ms</a></li><li><a  onClick="setlimit('+curr_index+',44)" >4500ms</a></li><li><a  onClick="setlimit('+curr_index+',45)" >4600ms</a></li><li><a  onClick="setlimit('+curr_index+',46)" >4700ms</a></li><li><a  onClick="setlimit('+curr_index+',47)" >4800ms</a></li><li><a  onClick="setlimit('+curr_index+',48)" >4900ms</a></li><li><a  onClick="setlimit('+curr_index+',49)" >5000ms</a></li>'+
+                    '                                </ul>' +
+                    '                           <br> <hr><font>该测评提示</font>:\n'
+                    +
+                    '<textarea class="form-control" rows="8" name="T'+curr_index+'" id="T'+curr_index+'" cols="5" onresize="false" style="resize: unset"\n' +
+                    '                                              placeholder="测评描述:最好有描述。\n' +
+                    '比如:\n' +
+                    '1+2+3+4+5+6+7=28"></textarea>'+
+                    '</div>\n' +
+                    '                                \n' +
+                    '                            </div>\n' +
+                    '                    </div>'+
+                    '                            </div>\n' +
+                    '                            <br><br><br>\n'
+                   );
+                setlimit(curr_index,1);
+                youcansee(curr_index,1);
+            }
+        });
+    })
+    function subm() {
+        //标题。
+        if($("#name").val().length>20||$("#name").val().length<2){
+            showtip("错误","题目的标题不符合规则!");
+            return false;
+        }
+        //题目描述
+        if($("#summernote").summernote('code').length<20){
+            showtip("错误","题目具体描述不符合规则!，再加一点文字吧");
+            return false;
+        }
+        $("#scription").val($("#summernote").summernote('code'));
+
+        //所在题组
+        // alert($("#belong_group").html()+","+$("#groupmd5").html());
+        $("#belong_group_").val($("#belong_group").html());
+        $("#groupmd5_").val($("#groupmd5").html());
+        //占总分比例
+        // alert($("#grade").html());
+        $("#score").val($("#grade").html());
+        //时间
+        // $("#starttime").val();
+        // $("#endtime").val();
+
+        //题目难易度
+        // $("#title_easy").val($("#text_abl").html());
+        $("#object_hard").val($("#text_abl").html());
+        // alert($("#text_abl").html());
+        //【题目数据限制】
+        if($("#summernote2").summernote('code').length<2){
+            showtip("错误","数据提示需要大于2个字节，最起码要包含所有变量的范围。");
+            return false;
+        }
+        $("#object_data_limit").val($("#summernote2").summernote('code'));
+        //附加描述
+        // alert($("#addition_tip").val());
+        //测试样例: [根据输出来判断你的多少]
+        var str = "";
+        var nums = 0;
+        if($("#EE_1").val().length<1){
+            showtip("错误","输出样例-测试点1 必须要有输出。！");
+            return false;
+        }
+        var str="";
+        // alert($("#E_1").val());
+
+        for(var i = 1;i<=curr_index;i++){
+            if($("#E_"+i).val().length<1){
+                $("#E_"+i).val("*");
+
+            }
+            if($("#EE_"+i).val().length<1){
+                // alert("该输出样例是空的，自动丢弃!"+i);
+                showtip("错误","输出样例-测试点必须要有输出。！");
+                return false;
+            }
+            else{
+                nums++;
+            }
+            // str = str+"out=";
+            //输入
+            // alert($("#E_"+i).val());
+            // //输出
+            // alert($("#EE_"+i).val());
+            // //可见
+            // alert($("#cansee_"+i).html());
+            // // 测评时间
+            // alert($("#timelimit_"+i).html());
+            // //提示
+            // alert($("#T"+i).val());
+        }
+        //正确代码
+        ;
+        if($("#correct_code").val().length<1){
+            alert("请输入正确代码");
+            return false;
+        }
+        // return false;
+        //统计有多少个测试样例
+        $("#nums_").val(nums);
+        $("#curr_INDEX").val(curr_index);
+
+
+
+        return true;
+    }
+    function youcansee(index,value) {
+        var str = "可见";
+        if(value == 2)str="不可见";
+        $("#cansee_"+index).html(str);
+        $("#CCCCC"+index).val(str);
+    }
+    function setRank(text) {
+        $("#text_abl").html(text);
+    }
+    function showtip(title,texT){
+        $("#tip_mtk").click();
+        $("#myModalLabel").html(title);
+        $("#text_tip").html(texT);
+        return false;
+    }
+    function  setlimit(x,index) {
+        $("#timelimit_"+x).html((100+(index*100))+"ms");
+        $("#BBBBB"+x).val((100+(index*100))+"ms");
+    }
+    //初始化的。
+    setlimit(1,1);
+    youcansee(1,1);
+    function queryGroup() {
+
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+
+                    for(var i = 1;i<request.responseText.split("}").length-1;i++){
+
+
+                            $("#groupul").append('<li><a onclick="setgroup('+i+')" id="B'+i+'">'+request.responseText.split("}")[i].split("|")[1]+'</a></li>');
+                            $("#groupul").append('<a id="GROUPMD5'+i+'" hidden>'+request.responseText.split("}")[i].split("|")[0]+'</a>');
+                            if(i == 1){
+                                $("#belong_group").html(request.responseText.split("}")[i].split("|")[1]);
+                                $("#groupmd5").html(request.responseText.split("}")[i].split("|")[0]);
+
+                            }
+                    }
+                }
+                ;
+
+            }
+            request.open("GET", "GetData.jsp?getOrigient=EACHGROUP", true);
+            request.send();
+        }
+    }
+    function setgrade(text) {
+        $("#grade").html(text);
+    }
+    function setgroup(x){
+        $("#belong_group").html($("#B"+x).html());
+       $("#groupmd5").html($("#GROUPMD5"+x).html());
+    }
+    queryGroup();
+</script>
+<!--我采用多次传输吧然后在后台弄文件存起来。...服了-->

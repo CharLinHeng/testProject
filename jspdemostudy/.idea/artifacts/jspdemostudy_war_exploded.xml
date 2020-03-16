@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="jspdemostudy:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/jspdemostudy_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="jspdemostudy" />
+        </element>
+      </element>
+      <element id="dir-copy" path="A:\java\idea\jspdemostudy\web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+    <!--#{}  ${}  -->
+    <select id="finddata" parameterType="String"
+
+    <!--<select id="findtip" parameterType="Integer" resultType="pojo.GetInformations">-->
+       <!--select  * from tip where x =#{v};-->
+    <!--</select>-->
+    <!--<select id="alltip" parameterType="Integer" resultType="pojo.GetInformations">-->
+       <!--select  * from tip;-->
+    <!--</select>-->
+    <!--<insert id="adddata" parameterType="pojo.GetInformations">-->
+
+        <!--INSERT INTO `tip`(`userid`, `initalId`, `content`, `time`, `type`, `statue`)-->
+        <!--VALUES (#{userid},#{initalId},#{content},#{time},#{type},#{statue});-->
+    <!--</insert>-->
+    <!--<delete id="deletedata">-->
+        <!--delete  from lyb;-->
+
+    <!--</delete>-->
+    <!--<update id="update" parameterType="pojo.GetInformations">-->
+        <!--UPDATE `tip` SET time=#{time} where x = #{x};-->
+    <!--</update>-->
+
+
+</mapper>

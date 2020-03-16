@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一级管理员:编辑题目组</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="source/css/indexfix.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="source/js/jquery_need.js"></script>
+    <!---->
+    <script src="edit/dist/summernote.js"></script>
+    <script src="edit/dist/lang/summernote-zh-CN.js"></script>
+    <link href="edit/dist/summernote.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <br><br><br><br>
+            <hr>
+            <h3 style="word-wrap: normal;word-break: break-all;justify-content: center;display: flex;">
+                请输入题目组名称:
+                <input type="text" class="form-control" id="name" placeholder="请输入名称/2-25字之间" style="width: 600px;"
+                       data-toggle="tooltip" data-placement="right"
+                       title="输入的名称需要符合规则!">
+            </h3>
+            <hr>
+            <br><br><br>
+            <div class="row clearfix">
+                <div class="col-md-2 column">
+                    <p>
+                        <strong>开始时间</strong>
+                        <input type="text" style="width: 150px;height: 25px;border-style: solid;border-radius: 5px;" id="starttime">
+                        <script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
+                        <script>
+                            laydate.render({
+                                elem: '#starttime',
+                                type:'datetime'
+                            });
+                        </script>
+                    <hr>
+                    <strong>结束时间</strong>
+                    <input type="text" style="width: 150px;height: 25px;border-style: solid;border-radius: 5px;" id="endtime">
+                    <script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
+                    <script>
+                        laydate.render({
+                            elem: '#endtime',
+                            type:'datetime'
+                        });
+                    </script>
+                    <br>
+                    <hr>
+                    <p style="font-size: 12px;color: red;">【两个输入框都不设定时间】则表示没有时间限制</p>
+                    <button type="button" id="cleardate" class="btn btn-default" style="width: 150px;">清空日期</button>
+
+                    </p>
+                </div>
+                <div class="col-md-6 column">
+                    <div class="row clearfix">
+                        <div class="col-md-6 column">
+                        </div>
+                        <div class="col-md-6 column">
+                        </div>
+                    </div>
+                    <div style="width: 560px;min-height: 200px;" data-toggle="tooltip" data-placement="right"
+                         title="最好别加图片，这里的描述主要是文字！base64承受不了100k以上的image！太脆弱">
+                        <div id="summernote" class="summernote"   >
+                                请在这里添加题目组描述
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 column">
+                    <p>
+                        <em style="font-weight: bolder;">生成邀请码</em>
+                        <strong>
+                            【需要输入邀请码才能答题】【值为空表示不需要邀请码就能答题】
+                        </strong>
+                        <input type="text" class="form-control" id="invest" disabled placeholder="如果不输入默认不需要邀请码[32位字母]">
+                        <div style="height: 2px;"></div>
+                        <button type="button" id="getinvest" class="btn btn-default">生成</button>
+                        <button type="button" id="clear" class="btn btn-default">清除</button>
+                    </p>
+                    <hr>
+                    <div class="row clearfix">
+                        <div class="col-md-6 column">
+                            <div class="btn-group">
+                                <p>
+                                    所在组类别
+                                </p>
+                                <button id="type_you_select" class="btn btn-default" style="max-width: 100px;overflow:hidden;"></button>
+                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="select_can">
+
+                                </ul>
+                                <br>
+                                <br>
+                                <p style="font-family: '幼圆';font-size: 12px;">
+                                    没有想要的？可以试试
+                                    <br>联系
+                                    管理员为您添加
+                                    <br>
+                                    <div style="height: 2px;"></div>
+                                    <a href="" style="font-family: '幼圆';font-size: 12px;color: dodgerblue;">点击联系qq管理员</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 column">
+                            <div style="float:left;width: 1px;height: 150px; background: rgba(0,0,0,0.1);margin-left: -50px;"></div>
+                            <p>
+                                可以参与人数
+                                <br>
+                                <div style="height: 3px;"></div>
+                                <input type="text" class="form-control" id="people" placeholder="1~50000" style="width: 100px;">
+                                <div style="height: 3px;"></div>
+                                总分
+                                <br>
+                                <div style="height: 3px;"></div>
+                                <input type="text" class="form-control" id="grade" placeholder="20~1000" style="width: 100px;">
+                            </p>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+        </div>
+        <div class="col-md-4 column">
+            <button type="button" id="sub" class="btn btn-default" style
+            ="width: 200px;">生成用户组</button>
+        </div>
+        <div class="col-md-4 column">
+        </div>
+    </div>
+</div>
+<hr>
+<div class="alert alert-success alert-dismissable" style="width: 500px;height: 70px;justify-content: center;;margin: 0 auto;position: relative;left: -100px;">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    一个用户一天最多只能能创建两个组!  后续会开发编程语言限制！  以及最多提交次数。
+</div>
+<br>
+<br>
+<button data-toggle="modal" data-target="#myModal" id="get_error" hidden="true"></button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="text_" style="word-break: break-word;word-wrap: break-word;white-space: normal;"></div>
+            <div class="modal-footer" id="conta" style="word-break: normal;word-wrap: break-word;">
+
+                <button type="button" id="know" class="btn btn-default" data-dismiss="modal">知道了</button>
+                <button type="button" id="sure_sub" onClick="subm()" class="btn btn-primary">确定生成</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<a href="" style="justify-content: center;display: flex;margin: 0 auto;">All CopyRight@Charlinheng</a>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $("#getinvest").click(function () {
+            var dig = randomDigit(false,20);
+            $("#invest").val(dig);
+        })
+        $("#clear").click(function () {
+            $("#invest").val("");
+        })
+        $("#cleardate").click(function () {
+            $("#starttime").val("");
+            $("#endtime").val("");
+        })
+        $(function(){
+            $('.summernote').summernote({
+                height: 200,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+            $('.summernote').summernote('backColor', 'red');
+        });
+        $("#1").click(function () {
+            $("#type_you_select").html($("#1").html());
+        })
+        $("#type_you_select").click(function () {
+            $("#sure_sub").css("display","none");
+            $("#myModalLabel").html("选择的组类型：");
+            $("#text_").html($("#type_you_select").html());
+            $("#get_error").click();
+        })
+        //query
+
+
+    })
+    function queryData() {
+        if(window.XMLHttpRequest){
+            var request = new XMLHttpRequest();
+            request.onreadystatechange=function(){
+                if(request.readyState==4&&request.status==200){
+                    var data = request.responseText.split("}");
+                    for(var i = 1;i<data.length-1;i++){
+                        if(i<2)$("#type_you_select").html(data[i].split("|")[1]);
+                        $("#select_can").append('<li><a id="F'+i+'" onclick='+'"changetype('+i+')"'+'>'+data[i].split("|")[1]+' </a> </li>');
+                    }
+                }
+            };
+            request.open("GET","GetData.jsp?getOrigient=GROUPTYPE",true);
+            request.send();
+        }
+    }
+    queryData();
+    var finally_ = 0;
+    var limittime = 1;
+    function randomDigit(randomFlag, min, max){
+        var str = "",
+            range = min,
+            arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        // 随机产生
+        if(randomFlag){
+            range = Math.round(Math.random() * (max-min)) + min;
+        }
+        for(var i=0; i<range; i++){
+            pos = Math.round(Math.random() * (arr.length-1));
+            str += arr[pos];
+        }
+        return str;
+    }
+    $("#sub").click(function () {
+        $("#sure_sub").css("display","none");
+        finally_ = 0;
+        //校验标题
+        if($("#name").val().length<2||$("#name").val().length>25){
+            $("#name").css("border-color","red").focus();
+            return ;
+        }
+        $("#name").css("border-color","");
+        //可以参与人数
+        if($("#people").val().length<1||$("#people").val()<1||$("#people").val()>10000){
+            $("#people").css("border-color","red").focus();
+            return ;
+        }
+        for(var i = 0;i<$("#people").val().length;i++)if($("#people").val()[i]<'0'||$("#people").val()[i]>'9'){
+            $("#people").css("border-color","red").focus();return ;}
+        $("#people").css("border-color","");
+        //校验是否含有除数字外的东西
+        //总分
+        if($("#grade").val().length<1||$("#grade").val()<20 ||$("#grade").val()>50000){
+            $("#grade").css("border-color","red").focus();
+            return ;
+        }
+        for(var i = 0;i<$("#grade").val().length;i++)if($("#grade").val()[i]<'0'||$("#grade").val()[i]>'9'){
+            $("#grade").css("border-color","red").focus();return ;}
+        $("#grade").css("border-color","");
+
+        //所在类别
+        if($("#type_you_select").html().length<1){
+            $("#myModalLabel").html("错误提醒");
+            $("#text_").html("题组类型没有选择");
+            $("#get_error").click();
+            return 0;
+        }
+        //检查日期值
+        // alert($("#starttime").val()+" ,"+$("#endtime").val());
+        limittime = 1;
+        if(!compareTime_($("#starttime").val(),$("#endtime").val())){
+            $("#myModalLabel").html("日期逻辑错误");
+            $("#text_").html("您输入的【开始日期】和【结束日期】逻辑有错误...");
+            $("#get_error").click();
+            return 0;
+        }
+        if(new Date().getTime()>new Date($("#endtime").val()).getTime()){
+            $("#myModalLabel").html("结束日期提醒");
+            $("#text_").html("您这 设定的结束时间 ，已发布题组就做题时间时间结束了，就不能做题了，请注意。\n这是警告不是错误！");
+            $("#get_error").click();
+
+            return 0;
+        }
+        if($("#starttime").val().length<1&&$("#endtime").val().length<1){
+            // alert("不设定时间");
+            limittime = "不设定时间限制"; //表示
+        }
+        else if(($("#starttime").val().length<1&&$("#endtime").val().length>1)||($("#starttime").val().length>1&&$("#endtime").val().length<1)){
+            $("#myModalLabel").html("日期设定错误哦");
+            $("#text_").html("设定错误，不能一边为空");
+            $("#get_error").click();
+
+            return ;
+        }
+        if($("#summernote").summernote('code').length<5){
+            $("#myModalLabel").html("描述框：");
+            $("#text_").html("请对大家说一两句话吧。~");
+            $("#get_error").click();
+            return ;
+        }
+
+        if(limittime.toString().indexOf("不")==-1)
+            limittime = "(开始时间:  "+$("#starttime").val()+",结束时间:  "+$("#endtime").val()+")";
+        // alert($("#type_you_select").html());
+        //邀请码值
+        var addInvest = 1;
+        var str_Invest = "";
+        if($("#invest").val().length<1){
+            str_Invest = "不需要邀请码";
+        }
+        else{
+            str_Invest = $("#invest").val();
+        }
+        // alert(str_Invest);
+    //     alert($("#summernote").summernote('code').);
+        //准备就绪，准备入库，确认
+        $("#myModalLabel").html("确认");
+        var text;
+        finally_ = 1;
+
+
+        text = "题组标题:<font style='color: red;font-weight: bolder;'>"+$("#name").val()+"</font><br><br>"+"组属类别:<font style='color: red;font-weight: bolder;'>"+$("#type_you_select").html()+
+        "</font><br><br>邀请码   :<font style='color: red;font-weight: bolder;'>"+str_Invest+"</font><br><br>"+
+        "时间范围:<font style='color: red;font-weight: bolder;'>"+limittime+"</font><br><br>"+"可以参与人数:"+
+        "<font style='color: red;font-weight: bolder;'>"+$("#people").val()+"</font><br><br>"+
+        "总分:<font style='color: red;font-weight: bolder;'>"+$("#grade").val()+"</font><br><br>"+
+                "描述:<br><div style='width: 600px;max-height: 300px;overflow: auto;min-height: 150px;'>"+$("#summernote").summernote('code')+"</div>>";
+        $("#text_").html(text);
+        $("#get_error").click();
+        $("#know").css("display","none");
+        $("#sure_sub").css("display","block").css("justify-content","right").css("display","flex").css("position","absolute").css("right","10px");
+        $("#conta").append("<br><hr>");
+        // limittime
+    })
+    function subm() {
+        var sd;
+        sd = "title="+encodeURI(encodeURI($("#name").val()))+"&" +
+            "starttime="+encodeURI(encodeURI($("#starttime").val()))+"&" +
+            "endtime="+encodeURI(encodeURI($("#endtime").val()))+"&"+
+            "scrip="+encodeURI(encodeURI($("#summernote").summernote('code')))+"&" +
+            "invest="+$("#invest").val()+"&" +
+            "score="+$("#grade").val()+"&" +
+            "maxpeople="+$("#people").val()+"&" +
+            "type="+encodeURI(encodeURI($("#type_you_select").html()));
+        if(finally_ == 1){
+            if(window.XMLHttpRequest){
+                var request = new XMLHttpRequest();
+
+                request.onreadystatechange=function(){
+                    if(request.readyState==4&&request.status==200){
+                        if(request.responseText.indexOf("suc")!=-1){
+                            $("#myModalLabel").html("结果:");
+                            $("#text_").html("新增成功!");
+                            $("#know").css("display","block").css("justify-content","right").css("display","flex").css("position","absolute").css("right","10px");
+                            $("#sure_sub").css("display","none");
+                        }
+                        else{
+                            if(request.responseText.indexOf("alea")!=-1){
+                                var text = "标题已经存在";
+                            }
+                            else{
+                                var text= "可能是网络原因或者其他，请检查后在试试.";
+                            }
+                            $("#myModalLabel").html("结果");
+                            $("#text_").html(text);
+                            $("#know").css("display","block").css("justify-content","right").css("display","flex").css("position","absolute").css("right","10px");
+                            $("#sure_sub").css("display","none");
+                        }
+                    }
+                };
+
+                request.open("POST","AddGroup.jsp",true);
+                request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.send(sd);
+            }
+        }
+        else{
+            $("#myModalLabel").html("警告");
+            $("#text_").html("参数错误。");
+            $("#get_error").click();
+            return ;
+        }
+            //
+    }
+    function changetype(uuid) {
+        $("#type_you_select").html($("#F"+uuid).html());
+    }
+    function compareTime_(starttime,endtime) {
+        if (new Date(starttime).getTime() >=new Date(endtime).getTime()) return false;
+        else return true;
+    }
+
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>

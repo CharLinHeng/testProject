@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="tit"></title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="source/css/indexfix.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="source/js/jquery_need.js"></script>
+</head>
+<body id="bdys">
+<div style="height: 70px;"></div>
+<div class="container" style="background: rgba(0,0,0,0.02);border-radius: 8px;box-shadow: 0 0 10px 1px rgba(0,0,0,0.01)">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3 align="center" style="font-weight: bolder;" id="title_ao">
+
+            </h3>
+            <h6 align="right" style="font-weight: normal;font-family: '华文宋体';" id="type">
+                <button type="button" class="btn btn-success" id="type_ss"></button>
+            </h6>
+            <div style="height: 30px;"></div>
+            <p style="width: 800px;min-height: 100px;justify-content: center;margin: 0 auto;" id="para_scrip">
+
+            </p>
+            <br><br><br>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                </div>
+            </div>
+
+            <div id="context_wtf">
+
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-8 column">
+                </div>
+                <div class="col-md-4 column">
+                </div>
+            </div>
+            <br>
+            <div class="row clearfix" style="width: 850px;margin: 0 auto;">
+                <div class="col-md-12 column">
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>
+                            加油!
+                        </h4> <strong id="hard"></strong>
+                    </div>
+                    <p id="data_limit"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+        </div>
+    </div>
+    <br>
+    <div style="width: 1000px;margin: 0 auto;">
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <font  style="font-weight: bolder;font-family: '华文宋体';">
+                    代码提交:
+                </font>
+                <div class="btn-group">
+
+                    <button class="btn btn-default">C</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">C</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">java</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">python</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">javascript</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">ruby</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">c#</a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#">asp</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div style="width: 1000px;min-height: 200px;margin: 0 auto;">
+        <br>
+        <div style="border-style: solid;border-width: 1px;border-color: rgba(0,0,0,0.3);width: 300px;margin: 0 auto;">
+            <code class="prettyprint" contenteditable="true">
+                //代码提交提示:
+                <br>
+                #include< stdio.h>
+                <br>
+                int main(){
+                <br>
+                  &nbsp;&nbsp;printf("A");
+                <br>
+                &nbsp;&nbsp;return 0;
+                <br>
+                }
+
+
+            </code>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <textarea class="form-control" id="codes_user" rows="20" onresize="false" style="resize: vertical;min-height: 100px;"></textarea>
+        </div>
+        <div id="myAl" style="display: none;">
+            <div id="myAlert2" class="alert alert-warning">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>警告！</strong>您的代码有问题或者没有输入。
+            </div>
+        </div>
+        <br>
+        <div style="width: 1000px;margin: 0 auto;">
+            <button type="button" id="sub_get" class="btn btn-success" style="align-content: end;justify-content: right;position:relative;right: 0;display: flex;margin: 0 0 0 800px;">提交代码</button>
+        </div>
+        <br style="height: 300px;">
+        <br>
+    </div>
+    <br><br><br><br><br><br>
+</div>
+<br><br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+<div name="floats" id="judges" style="background: red; width: 100vw;height:100vw;background: rgba(0,0,0,0.8);position: fixed;
+    display: block;top: 0;left: 0;right: 0;margin: 0 auto;display: none;border-radius: 5px;">
+        <div style="width: 700px;height: 630px;overflow-y: auto;position: relative;top: 3vw;background: rgba(255,255,255,1);margin: 0 auto;border-radius: 6px;">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>
+                        提交结果
+                    </strong>
+                    <button type="button" class="btn btn-default btn-sm" disabled>
+                        <span class="glyphicon glyphicon-user"></span> 用户XXXXXX
+
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" disabled>
+                        <span class="glyphicon glyphicon-time"></span>
+                        2020年2月8日23:32:32
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" disabled>
+                        <span class="glyphicon glyphicon-circle-arrow-right"></span> 当前排队人数:47
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" disabled>
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        <font style="cursor: default;" id="statue">
+                            等待中...
+                        </font>
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <p id="text_">
+                        <font id="tip">
+                            正在提交代码测试中....
+                        </font>
+
+
+                    </p>
+                </div>
+
+                <table class="table">
+                    <caption>测试点列表</caption>
+
+                    <thead>
+                    <tr>
+                        <th>测试点</th>
+                        <th>提示</th>
+                        <th>得分</th>
+                        <th>耗时</th>
+                        <th>编译器</th>
+                        <th>是否通过</th>
+                    </tr>
+                    </thead>
+                    <tbody id="test_content">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div style="position: absolute;bottom: 0px;width: 100%;height: 40px;">
+                <div class="btn-group" style="justify-content: right;display: flex;position: absolute;right: 15px;bottom: 10px;">
+                    <button type="button" class="btn btn-default">保存结果</button>
+                    <button id="reset_" type="button" class="btn btn-default">重新提交</button>
+                    <button id="calcel" type="button" class="btn btn-default">
+                        <font style="color: green;font-weight: bolder;">
+                            我知道了
+                        </font>
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>
+</html>
+<script>
+    var data_Serializable;
+    var md5 = "";
+    $(document).ready(function(){
+
+        $("#sub_get").click(function(){
+            if($("#codes_user").val().length<1){
+                $("#myAl").fadeIn(300);
+            }
+            else{
+                $("#myAl").fadeOut(300);
+                $("#judges").fadeIn(500);
+                //start
+                getData();
+            }
+
+        });
+        $("#calcel").click(function(){
+            $("#myAl").fadeOut(300);
+            $("#judges").fadeOut(500);
+        })
+    })
+
+    function getData() {
+        var fd = "textcode="+$("#codes_user").val();
+        if(window.XMLHttpRequest){
+            $("#statue").html("就绪");
+            var request = new XMLHttpRequest();
+            // alert($("#codes_user").val());
+            $("#tip").html("正在编译中...请等待");
+            request.onreadystatechange=function(){
+                if(request.readyState==4&&request.status==200){
+                    if(request.responseText.indexOf("success")!=-1)
+                    {
+                        $("#statue").html("编译成功!").css("color","green").css("font-weight","bolder");
+                        $("#tip").empty();
+                        $("#tip").html("编译通过!正在评测").css("color","blue").append("<font style=\"color: green;\" >\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default btn-sm\">\n" +
+                            "                                <span class=\"glyphicon glyphicon-ok\"></span> 编译通过!\n" +
+                            "                            </button>\n" +
+                            "                        </font>");
+                        $("#statue").css("color","green");
+                        //
+                        goExmples();
+
+
+
+
+                    }
+                    else
+                    {
+                        $("#statue").text("编译失败!");
+                        $("#tip").html("编译失败!,请检查代码是否有错误!").css("color","red").append("<button type=\"button\" class=\"btn btn-default btn-sm\" hidden>\n" +
+                            "                    <span class=\"glyphicon glyphicon-remove\"></span> 编译失败\n" +
+                            "                        </button>\n" +
+                            "                        <strong style=\"color: red;\">\n" +
+                            "                        继续加油!\n" +
+                            "                        </strong>");
+                        $("#statue").css("color","red");
+                    }
+
+                }
+            };
+            request.open("post","error.jsp",true);
+
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.send(fd);
+        }
+        $("#reset_").click(function () {
+            $("#myAl").fadeOut(300);
+            $("#judges").fadeOut(500);
+
+            $("#judges").fadeIn(500);
+            getData();
+        })
+    }
+
+    function judge(){
+
+        if(!getCookie("title_ti")){
+            window.location.href="code_select.html";
+        }
+        else{
+            data_Serializable =getCookie("title_ti");
+        }
+
+    }
+    judge();
+    function getCookie(name)
+    {
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+    function getdata_abouttitle() {
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    for(var i = 1;i<request.responseText.split("}").length-1;i++){
+                        $("#title_ao").html(request.responseText.split("}")[i].split("|")[2]);
+                        $("#tit").html(request.responseText.split("}")[i].split("|")[2]);
+                        $("#para_scrip").html(request.responseText.split("}")[i].split("|")[3]);
+                        $("#type_ss").html("所属分类:"+request.responseText.split("}")[i].split("|")[4]);
+
+
+
+                        $("#hard").html("您当前这道题的难度为:"+request.responseText.split("}")[i].split("|")[9]+"" +
+                            "<br> 当前提示为:"+request.responseText.split("}")[i].split("|")[8]);
+                        $("#data_limit").html(request.responseText.split("}")[i].split("|")[10]);
+                        md5 = request.responseText.split("}")[i].split("|")[1];
+                        getdata_examples();
+                    }
+
+
+                }
+
+
+            }
+
+            request.open("GET", "GetData.jsp?getOrigient=TITLEDATA&x="+data_Serializable, true);
+            request.send();
+        }
+    }
+    function getdata_examples() {
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    // alert(request.responseText);
+                    for(var i = 1;i<request.responseText.split("}").length-1;i++){
+
+                        $("#context_wtf").append(' <blockquote style="margin: 0 auto;width: 800px;" >\n' +
+                            '                    <p>\n' +
+                            '                       <font style="font-weight: bolder;"> 输入样例'+i+'</font><br>'+
+                            ''+request.responseText.split("}")[i].split("|")[2]+
+                            '               </p> </blockquote>\n' +
+                            '                <div class="row clearfix">\n' +
+                            '                    <div class="col-md-12 column">\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '\n' +
+                            '                <blockquote style="margin: 0 auto;width: 800px;">\n' +
+                            '                                          <font style="font-weight: bolder;">输出样例'+i+' </font><br><p>'+request.responseText.split("}")[i].split("|")[3]+'</p>\n' +
+                            '                </blockquote>\n' +
+                            '                <hr style="width: 800px;">');
+                    }
+
+
+                }
+
+
+            }
+
+            request.open("GET", "GetData.jsp?getOrigient=EXAMPLES&x="+md5, true);
+            request.send();
+        }
+    }
+    getdata_abouttitle();
+    //获取测试样例
+    //开始进行拉取数据测试。
+    function goExmples() {
+        var correct_num = 0;
+        var failer = 0;
+        var all = 0;
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+
+                    all= request.responseText.split("|")[1];
+                    request.abort();
+                    if(all >0){
+                        for(var i = 0;i<all;i++){
+
+
+                            //打印资源
+                            getEachUnit(i);
+
+                        }
+                        request.abort();
+                    }
+                    else{
+                        alert("未能获取到测试样例");
+                        return ;
+                    }
+
+
+
+                }
+            }
+            request.open("GET", "GetData.jsp?getOrigient=ALL_EXAMPLES&x="+md5, true);
+            request.send();
+        }
+
+    }
+
+    function getEachUnit(index) { //获取数据
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    // alert(request.responseText);
+                    for(var i = 1;i<2;i++){
+                        $("#test_content").append(' <tr class="active">\n' +
+                            '                        <td>样例'+index+'</td>\n' +
+                            '                        <td>'+request.responseText.split("}")[i].split("|")[4]+'</td>\n' +
+                            '                        <td id="score_'+index+'">正在评测</td>\n' +
+                            '                        <td id="time_'+index+'">正在评测</td>\n' +
+                            '                        <td>gcc</td>\n' +
+                            '                        <td id="accept_'+index+'">评测中...</td>\n' +
+                            '                    </tr>\n');
+
+                    }
+                    //进行后台评测
+                    // makeJudge(index);
+                    request.abort();
+                }
+            }
+            request.open("GET", "GetData.jsp?getOrigient=EXAMPLES_EACH&x="+md5+"&index="+index, true);
+            request.send();
+        }
+    }
+    function makeJudge(counts) { //评测
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+
+
+                    request.abort();
+                }
+            }
+            request.open("GET", "HandleExamples.jsp?x="+md5+"&index="+counts, true);
+            request.send();
+        }
+    }
+</script>

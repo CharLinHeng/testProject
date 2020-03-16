@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="source/css/indexfix.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="source/js/jquery_need.js"></script>
+    <style type="text/css">
+        .fff:hover{
+            cursor: pointer;
+            background: rgba(0,0,0,0.09);
+        }
+
+
+    </style>
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1 id="ti"></h1>
+            </div>
+            <blockquote id="scr">
+
+            </blockquote>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">数的结构-基础编程题目</a>
+                </li>
+                <li class="active">
+                    ...
+                </li>
+            </ul>
+            <div class="btn-group btn-group-sm" style="justify-content: right;display: flex;">
+                <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em>
+                    返回</button>
+                <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 查看排行</button>
+                <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em>我的提交</button>
+                <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em>收藏</button>
+            </div>
+            <br>
+            <div class="tabbable" id="tabs-238882">
+                <br>
+
+                <ul class="nav nav-tabs">
+                    <li>
+                        <!--href="#panel-668605" data-toggle="tab"-->
+                        <a disabled="true" style="cursor: not-allowed;"  >选择题</a>
+                    </li>
+                    <li class="active">
+                        <a href="#panel-998474" data-toggle="tab">编程题</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="panel-998474">
+                        <p>
+                        <table class="table">
+                            <thead align="center">
+                            <tr align="center">
+                                <th align="center" style="justify-content: center;display: flex;">
+                                    编号
+                                </th>
+                                <th>
+                                    标题
+                                </th>
+
+                                <th>
+                                    您的得分
+                                </th>
+                                <th>
+                                    提交次数
+                                </th>
+                                <th>
+                                    通过人数
+                                </th>
+                                <th>
+                                    性能最高
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody  id="conob">
+
+
+
+                            </tbody>
+                        </table>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="pagination" style="justify-content: center;display: flex;">
+                <li>
+                    <a href="#">上一页</a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+
+                <li>
+                    <a href="#">下一页</a>
+                </li>
+            </ul>
+            <div class="alert alert-success alert-dismissable" id="tip_">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+            </div>
+            <a id="modal-700340" href="#modal-container-700340" role="button" class="btn">轻松小笑话</a>
+
+            <div class="modal fade" id="modal-container-700340" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                标题
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            内容...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <dl>
+                <div class="alert alert-warning">
+                    <p>
+                        　1、麻雀和乌鸦一起摆龙门阵。
+                        　　麻雀说：你是啥子鸟哦？
+                        　　乌鸦说：我是凤凰噻！
+                        　　麻雀：哪有你龟儿子这么黑的凤凰哦？
+                        　　乌鸦：你晓得个铲铲，老子是烧锅炉的凤凰噻。?
+                        　　<br>2、某老师给学生安排的作业是用“恳求”和“要求”造句。 ?
+                        　　作业本交上来后，其中一生答：昨天妈妈炖了一锅猪脚，还没熟的时候爸爸吃了一块，说：“恳求不动”。
+                        　　妈妈说：“要求你啃！”?
+                        　　<br>3、一位老太太不识字，但喜欢听收音机，气象预报每天必听。一天吃饭时问家人：“我有个问题想问问，你们知道局部地区在什么地方？那儿差不多天天有雨。”
+                        　　<br>4、你男生暗恋一女生 鼓气勇气问那女生喜欢什么样的男生
+                        　　“投缘的”女生答 ，连问几遍都是一样的答案
+                        　　该男生泄气道：“头扁的行不行”。
+                        　　<br>5、某天考生物，其中有一题是看鸟的腿猜出鸟的名字。某生实在不懂，生气的把卷子一撕准备离开考场。监考老师很生气于是问他：“你是哪班的，叫什么名字？”某生把裤腿一掀，说：“你猜啊你猜啊。”
+                        　<br>　6、在和朋友聊天…
+                        　　朋友“我好想你，你不在的这几天我整天茶不思饭不想，都瘦好几斤了。”
+                        　　我：“说人话！”
+                        　　朋友：“真的是因为想你才吃不下饭的。”
+                        　　我：“5 4 3 2…”
+                        　　朋友：“好吧，没钱吃饭，江湖救急……”
+                        　<br>　7、屌丝对女神说：“我这么喜欢你，你为什么要这样对我？”女神怒怼屌丝：“你喜欢的东西多了，你还喜欢人民币呢，人民币跟着你了吗？”
+                        　<br>　8、小明：快过年了，赶紧给女朋友买情侣装。小强：买什么呀，我活了二十多岁，除了校服以外就没穿过情侣装！小明：你也要得买啊，假装自己有女朋友。小强：也是，毕竟天凉了，得买双手套。小明。。。
+                        　<br>　9、一幼儿园老师站门口迎接新生，一50多岁的妇女拉着一小女孩走过来，老师说到:“小美女，奶奶送你上学啊？”小女孩嗲声道:“老师，这是我妈妈！”老师赶紧说对不起！过一会，一二十七八的小伙拉着一小男孩过来了，女老师又说到:“哎呀，小朋友，你和你爸爸真像，都那么帅！”小伙不好意思的说到:“老师，我是他哥哥！”这故事告诉我们，二胎全面开放，大家不要轻易搭讪！
+                        　　<br>10、某人在村头发现个大坟,刨出个不知道值不值钱的碑。他请牛人们帮忙翻译一下上面的字。结果是:盗墓者请自重,本人是穷死的!
+                        　1、有一天在马路上溜达，突然发现一个美女在发动汽车，可就是打不着火，我就跑上去帮忙推，车打着后美女下来说谢谢你，你叫什么名字啊！我笑笑说：叫我老汉就可以了。
+                        　　<br>2、姐们去看妇科，化验结果出来，医生看到报告表情严肃，姐们心里直打鼓，急切的问：“医生，问题严重吗？”
+                        　　医生皱皱眉头说：“严重倒是不严重，我就是不理解，为什么样本里会有农药残留！”
+                        　　　<br>　3、洗漱完毕，躺在床上，女：亲爱的，今晚人家想要！
+                        　　男：我好累好困，我去桌上趴一会儿，说罢准备起身去电脑桌旁！
+                        　　女：借口，我就不信你连一分钟时间都没有？
+                        　　　　<br>4、追了很久的女神终于答应我了，都说她很单纯，从来没见她和别的男生一起过。
+                        　　我又是哄又是骗，好不容易骗上床了，兴奋的脱下裤子。
+                        　　突然！她说：怎么你们男人都爱穿这种颜色的裤衩！！
+                        　　　　<br>5、有一个漂亮小姐，上公交车后从包里拿出纸巾使劲的擦了擦座位，正要坐下时，放了一个屁。
+                        　　旁边的一个先生听到了，打趣地说：小姐真是爱卫生，擦了那么久，还要吹一下！
+                        　　　<br>　6、石阶问佛像：“我们都是石头，凭什么你受人膜拜我却遭人践踏？”
+                        　　佛像嗤笑道：“你只挨了四刀就成了石阶，我却挨了千刀万剐才有现今模样。想成功就要经历磨难啊！”
+                        　　过了几天，石阶带了个同伴又找到佛像：“这是我表亲，砧板，你也给他说道说道。”
+                        　　佛像：“……”
+                        　　　<br>　7、“皇上，臣妾今晚身体欠佳……”“爱妃，你怎么不早说？”皇上就拿出个夹子夹在了她身上。
+                        　　　<br>　8、老妈问我：“放假你怎么不去约会？”我说：“又没女的喜欢我。”老妈安慰我：“可能是因为你做的还不够好，假如有女的喜欢你，你愿意为她做什么？” 我不假思索：“任何事！” 妈点了点头：“好孩子，妈妈喜欢你，你愿意帮妈妈把碗洗一下么？” 唉，真的是防不胜防……
+                        　　　<br>　9、以前上学的时候最喜欢听老师说：我们接下来点下名啊。每次听到这句话，心里就感叹：尼麻的，这节课没白来啊！
+                        　　　<br>　10、说一真事 我姐夫烟瘾过高 一天两包 不够 我姐为了让他戒烟 方法用尽了 不管用 最后一绝招 你吸我跟着吸 你吸多少我吸多少…以为能让他戒烟…最后俩人成烟友了…
+                        　　　<br>　11、“我是你小学同学，记得我吗？” “哪个？不大记得了。” “三年级的时候拿市作文大赛一等奖的那个。” “没啥印象。” “五年级的时候奥数比赛拿省一等奖。” “还是没印象。” “六年级的时候我掀过老师的裙子。” “哦！原来是你啊！ ”
+                        　　　<br>　12、今天买了几个柿子，一帚香蕉，装在一个袋子里。
+                        　　回到寝室，发现柿子被挤烂了。
+                        　　由于今天吃不完，所以打算去清洗一下。
+                        　　我提着香蕉去水房，在龙头下冲了下。
+                        　　一哥们正在洗衣服。他看了看我，然后说：同学，香蕉不用洗，剥了皮就可以吃了。
+                    </p>
+                </div>
+
+            </dl>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">One more separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" />
+                        </div> <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $("#title1").click(function () {
+            window.location.href="code.html";
+        })
+
+
+
+
+    })
+    function judgecookie() {
+        if(getCookie("title")==null){
+            window.location.href="index.html";
+            return ;
+        }
+
+        //先获取 组信息
+        getgroupdata();
+
+        // get this group all data
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+
+                    for(var i = 1;i<request.responseText.split("}").length-1;i++){
+                        var data_ = request.responseText.split("}")[i].split("|");
+                        var string = ' <tr class="fff" onclick="go_object('+data_[0]+')">\n' +
+                            '                            <td>\n' +
+                            '                            1\n' +
+                            '                            </td>\n' +
+                            '                            <td>\n' +
+                            '                            '+data_[2]+'\n' +
+                            '                            </td>\n' +
+                            '                            <td>\n' +
+                            '                            <button type="button" class="btn btn-default btn-sm">\n' +
+                            '                            <span class="glyphicon glyphicon-ok"></span>\n' +
+                            '                            <font style="color: green;font-weight: bolder;">\n' +
+                            '                            100\n' +
+                            '                            </font>\n' +
+                            '                            </button>\n' +
+                            '                            </td>\n' +
+                            '                            <td>\n' +
+                            '                            1\n' +
+                            '                            </td>\n' +
+                            '                            <td>\n' +
+                            '                            100\n' +
+                            '                            </td>\n' +
+                            '                            <td>\n' +
+                            '                            10ms\n' +
+                            '                        </td>\n' +
+                            '                        </tr>';
+                            $("#conob").append(string);
+                    }
+                }
+                ;
+            }
+            request.open("GET", "GetData.jsp?getOrigient=QGROUPOBJECT", true);
+            request.send();
+        }
+
+
+
+    }
+    judgecookie();
+    function getgroupdata() {
+        if (window.XMLHttpRequest) {
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    for(var i = 1;i<request.responseText.split("}").length-1;i++){
+                        var data_ = request.responseText.split("}")[i].split("|");
+                        $("#ti").html(data_[2]+'&nbsp;&nbsp;&nbsp;<small>'+data_[5]+'</small>');
+                        $("#scr").html(data_[3]+'<small style="color:orangered;font-size: 10px;">创建时间：'+data_[6]+'<cite>作者:'+data_[7]+'</cite></small>');
+                        $("#tip_").append(' <h4>\n' +
+                            '                    注意!\n' +
+                            '                </h4> <strong>提示:</strong> ' +
+                            '您当前的题目组最多参加者人数为'+data_[8]+',当前参与人数为'+data_[9]+',满分'+data_[10]+'。<br>题目组开始时间范围为:['+data_[12]+','+data_[13]+']括号空白表示无时间限制。' +
+                            '<br>语言限制['+data_[14]+'],*号则表示没有编程语言限制');
+                    }
+                }
+                ;
+            }
+            request.open("GET", "GetData.jsp?getOrigient=QUERYMOUYIGE", true);
+            request.send();
+        }
+    }
+    function getCookie(name)
+    {
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+    function setCookie(name,value)
+    {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime()+60*60*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    }
+    function delCookie(name)
+    {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval=getCookie(name);
+        if(cval!=null)
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+    }
+    function getdata() {
+
+    }
+    function go_object(x) {
+        setCookie("title_ti",x);
+        window.location.href="code.html";
+    }
+</script>
